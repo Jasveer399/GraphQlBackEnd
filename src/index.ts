@@ -12,11 +12,13 @@ async function init() {
     typeDefs: `
       type Query {
         hello: String
+        say(name: String): String
       }
     `,
     resolvers: {
       Query: {
         hello: () => "Hello, World!",
+        say: (_, { name }: { name: String }) => `Hello, ${name}. How are you?`,
       },
     },
   });
